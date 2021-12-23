@@ -6,6 +6,7 @@ import { useState } from 'react'
 
 export default function Home() {
   const [userName, setUserName] = useState('')
+  const [badgeData, setBadgeData] = useState()
 
   const onNameSubmit = async (e) => {
     e.preventDefault()
@@ -20,6 +21,7 @@ export default function Home() {
       headers: { 'Content-Type': 'application/json' }
     })
     const data = await response.json()
+    setBadgeData(data)
     console.log({ data })
   }
   
@@ -43,7 +45,7 @@ export default function Home() {
             </div>
         </form>
 
-        <Badge info={{user: 'testUser'}} />
+        <Badge data={badgeData} />
 
         <p className={styles.description}>
           Get started by editing{' '}
