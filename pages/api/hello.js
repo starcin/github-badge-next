@@ -113,6 +113,7 @@ export default async function handler(req, res) {
   }
 
   await iterateFetch()
+  badgeData.user = user
   badgeData.userName = fetchedData.user.name
   badgeData.numOfForks = forkCount(badgeData.repos)
   badgeData.numOfRepos = fetchedData.user.repositories.totalCount - badgeData.numOfForks

@@ -1,4 +1,4 @@
-// import { useState } from 'react'
+import styles from './Badge.module.css'
 
 function nFormatter(num, digits) {
   const lookup = [
@@ -23,44 +23,44 @@ export default function Badge (props) {
 
   if (!badgeInfo) return '...'
   return(
-    <div className="card">
-      <div className="user" >
+    <div className={styles.card}>
+      <div className={styles.user} >
         <a href={badgeInfo.url} >
-          <img className="avatar" src={badgeInfo.avatarUrl} alt={props.user} />
+          <img className={styles.avatar} src={badgeInfo.avatarUrl} alt={props.user} />
         </a>
-        <div className="user-and-repo">
-          <a className="username" href={badgeInfo.url}>{props.user}</a>
+        <div>
+          <a className={styles.username} href={badgeInfo.url}>{badgeInfo.user}</a>
           {/* <div className="recent-repo">Worked on <a href={badgeInfo.recentRepo.url}>{badgeInfo.recentRepo.name}</a> recently.</div> */}
         </div>
         
       </div>
-      <div className="usage">
+      <div className={styles.usage}>
         {/* <div className="commits">
           <Sparklines data={Object.values(badgeInfo.lastWeek)} margin={2} >
             <SparklinesBars style={{ stroke: "white", fill: "#41c3f9", margin: "1"}} />
           </Sparklines>
         </div> */}
-        <div className="langs">
+        <div className={styles.langs}>
           {badgeInfo.languages.slice(0, 3).join(', ')}
           {badgeInfo.languages.length > 3 && <span title={badgeInfo.languages.slice(3).join(', ')}>...</span>}
         </div>
       </div>
-      <div className="stats">
-        <div className="stat">
-          <div className="count">{badgeInfo.numOfRepos}</div>
-          <div className="label">repos</div>
+      <div className={styles.stats}>
+        <div className={styles.stat}>
+          <div className={styles.count}>{badgeInfo.numOfRepos}</div>
+          <div className={styles.label}>repos</div>
         </div>
-        <div className="stat">
-          <div className="count">{nFormatter(badgeInfo.numOfFollowers, 1)}</div>
-          <div className="label">followers</div>
+        <div className={styles.stat}>
+          <div className={styles.count}>{nFormatter(badgeInfo.numOfFollowers, 1)}</div>
+          <div className={styles.label}>followers</div>
         </div>
-        <div className="stat">
-          <div className="count">{badgeInfo.numOfForks}</div>
-          <div className="label">forks</div>
+        <div className={styles.stat}>
+          <div className={styles.count}>{badgeInfo.numOfForks}</div>
+          <div className={styles.label}>forks</div>
         </div>
-        <div className="stat">
-          <div className="count">{nFormatter(badgeInfo.numOfStargazers, 1)}</div>
-          <div className="label">stargazers</div>
+        <div className={styles.stat}>
+          <div className={styles.count}>{nFormatter(badgeInfo.numOfStargazers, 1)}</div>
+          <div className={styles.label}>stargazers</div>
         </div>
       </div>
     </div>
