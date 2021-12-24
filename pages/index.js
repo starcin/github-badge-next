@@ -15,7 +15,7 @@ export default function Home() {
       return
     }
     console.log('submitted:', userName)
-    const response = await fetch('/api/hello', {
+    const response = await fetch('/api/fetch_badge', {
       method: 'POST',
       body: JSON.stringify({ user: userName }),
       headers: { 'Content-Type': 'application/json' }
